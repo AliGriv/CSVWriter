@@ -1,0 +1,10 @@
+cmake_minimum_required(VERSION 3.17)
+project(CSVWriter)
+set(CMAKE_CXX_STANDARD 11)
+include_directories(include)
+
+add_library(CSVWriter SHARED include/CSVWriter.h)
+set_target_properties(CSVWriter PROPERTIES LINKER_LANGUAGE CXX)
+add_executable(CSVWriter_Example main.cpp)
+target_include_directories(CSVWriter_Example PUBLIC include)
+target_link_libraries(CSVWriter_Example CSVWriter)
